@@ -133,14 +133,7 @@ namespace CustomOrder
                 {
                     if (message.StartsWith(Program.Config.Command.Head))
                     {
-                        if (arg[0] == "help")
-                        {
-                            if (arg.Length != 3)
-                            {
-                                SendMessage(qq, "cost id cost 设置订单定价", group, s);
-                            }
-                        }
-                        else if (arg[0] == "cost")
+                        if (arg[0] == "cost")
                         {
                             if (arg.Length != 3)
                             {
@@ -222,6 +215,10 @@ namespace CustomOrder
                             {
                                 CustomUtils.SetClose(arg[1]);
                             }
+                        }
+                        else
+                        {
+                            SendMessage(qq, "CustomOrder正在运行", group, s);
                         }
                     }
                 }
