@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CustomOrder
+﻿namespace CustomOrder
 {
-    enum CustomState 
+    enum CustomState
     {
-        ready, going, done, deny, wating, price
+        ready, going, done, deny, wating, price, close
     }
     class CustomObj
     {
@@ -17,5 +11,7 @@ namespace CustomOrder
         public string id { get; set; }
         public int cost { get; set; }
         public CustomState state { get; set; }
+        public int time { get; set; }
+        public long group { get; set; }
     }
 }

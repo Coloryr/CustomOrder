@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CustomOrder
+﻿namespace CustomOrder
 {
     record RobotObj
     {
@@ -14,7 +8,7 @@ namespace CustomOrder
         public int Time { get; set; }
         public bool Check { get; set; }
     }
-    record TextObj 
+    record TextObj
     {
         public string Help { get; set; }
         public string Start { get; set; }
@@ -22,12 +16,15 @@ namespace CustomOrder
         public string Cost { get; set; }
         public string Start2 { get; set; }
         public string My { get; set; }
+        public string My1 { get; set; }
         public string Now { get; set; }
         public string Last { get; set; }
         public string NoText { get; set; }
         public string NoLast { get; set; }
+        public string Done { get; set; }
+        public string Close { get; set; }
     }
-    record CommandObj 
+    record CommandObj
     {
         public string Head { get; set; }
         public string Start { get; set; }

@@ -9,7 +9,7 @@ namespace CustomOrder
         public static RebotCall robot { get; private set; }
 
         private static Logs logs;
-        
+
         static void Main()
         {
             RunLocal = AppContext.BaseDirectory;
@@ -47,12 +47,17 @@ namespace CustomOrder
                     Cost = "你的订单{0}已定价为{1}，输入[#定制 确定]确定订单，如果你不需要该订单请输入[#定制 取消]",
                     Start2 = "订单{0}{1}",
                     My = "我的订单:",
+                    My1 = "ID：{0} 价格：{1} 状态：{2}",
                     Now = "正在进行的订单ID：{0}",
                     Last = "你的订单{0}未处理",
                     NoText = "你没有输入定制内容",
-                    NoLast = "你没有待处理的订单"
+                    NoLast = "你没有待处理的订单",
+                    Done = "订单{0}已完成",
+                    Close = "订单{0}已被关闭"
                 }
             }, RunLocal + "config.json");
+
+            CustomUtils.Start();
 
             robot = new();
             robot.init();
@@ -63,10 +68,15 @@ namespace CustomOrder
                 var arg = temp.Split(' ');
                 if (arg[0] == "stop")
                 {
+                    CustomUtils.Stop();
                     robot.Stop();
                     return;
                 }
             }
+        }
+        public static void Save()
+        {
+            ConfigUtils.Save(Config, RunLocal + "config.json");
         }
 
         public static void Log(string data)
@@ -75,7 +85,7 @@ namespace CustomOrder
         }
         public static void Error(string data)
         {
-            logs.LogError(data);    
+            logs.LogError(data);
         }
         public static void Error(Exception e)
         {
